@@ -176,23 +176,23 @@
                     <div class="pillar-col">
                         <div class="pillar-header">
                             <i class="ph ph-tree-structure"></i>
-                            <div><span class="title">Organizational</span><span class="score">Overall Score: 4.1/7</span></div>
+                            <div><span class="title">Organizational</span><span class="score" style="white-space: nowrap; display: block; margin-top: 4px;">Note globale : <span id="score-organisation">0.0</span>/7</span></div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-info"><span>Leadership & Strategy</span><span>4.8</span></div>
-                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-green" style="width: 68%;"></div></div>
+                        <div class="progress-item" onclick="app.openQuestionnaire('organisation', 'leadership_strategie')">
+                            <div class="progress-info"><span>Leadership & Strategy</span><span id="score-organisation-leadership_strategie">0.0</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-green" style="width:0%"></div></div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-info"><span>Culture</span><span>4.2</span></div>
-                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-blue" style="width: 60%;"></div></div>
+                        <div class="progress-item" onclick="app.openQuestionnaire('organisation', 'culture')">
+                            <div class="progress-info"><span>Culture</span><span id="score-organisation-culture">0.0</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-blue" style="width:0%"></div></div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-info"><span>Business Environment</span><span>3.9</span></div>
-                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-orange" style="width: 55%;"></div></div>
+                        <div class="progress-item" onclick="app.openQuestionnaire('organisation', 'environnement')">
+                            <div class="progress-info"><span>Business Environment</span><span id="score-organisation-environnement">0.0</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-orange" style="width:0%"></div></div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-info"><span>Employees</span><span>3.5</span></div>
-                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-orange" style="width: 50%;"></div></div>
+                        <div class="progress-item" onclick="app.openQuestionnaire('organisation', 'employes')">
+                            <div class="progress-info"><span>Employees</span><span id="score-organisation-employes">0.0</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-blue" style="width:0%"></div></div>
                         </div>
                     </div>
 
@@ -200,23 +200,23 @@
                     <div class="pillar-col">
                         <div class="pillar-header">
                             <i class="ph ph-desktop"></i>
-                            <div><span class="title">Technology</span><span class="score">Overall Score: 3.5/7</span></div>
+                            <div><span class="title">Technology</span><span class="score" style="white-space: nowrap; display: block; margin-top: 4px;">Note globale : <span id="score-technologie">0.0</span>/7</span></div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-info"><span>Tech Infrastructure</span><span>4.2</span></div>
-                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-blue" style="width: 60%;"></div></div>
+                        <div class="progress-item" onclick="app.openQuestionnaire('technologie', 'connectivite')">
+                            <div class="progress-info"><span>Connectivité</span><span id="score-technologie-connectivite">0.0</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-green" style="width:0%"></div></div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-info"><span>Data Governance</span><span>2.8</span></div>
-                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-orange" style="width: 40%;"></div></div>
+                        <div class="progress-item" onclick="app.openQuestionnaire('technologie', 'donnees_cyber')">
+                            <div class="progress-info"><span>Data & Cybersecurity</span><span id="score-technologie-donnees_cyber">0.0</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-blue" style="width:0%"></div></div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-info"><span>Cybersecurity</span><span>4.5</span></div>
-                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-green" style="width: 65%;"></div></div>
+                        <div class="progress-item" onclick="app.openQuestionnaire('technologie', 'automatisation')">
+                            <div class="progress-info"><span>Automatisation</span><span id="score-technologie-automatisation">0.0</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-orange" style="width:0%"></div></div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-info"><span>Information Systems</span><span>3.8</span></div>
-                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-orange" style="width: 54%;"></div></div>
+                        <div class="progress-item" onclick="app.openQuestionnaire('technologie', 'intelligence')">
+                            <div class="progress-info"><span>Intelligence & Systèmes</span><span id="score-technologie-intelligence">0.0</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-blue" style="width:0%"></div></div>
                         </div>
                     </div>
 
@@ -224,23 +224,23 @@
                     <div class="pillar-col">
                         <div class="pillar-header">
                             <i class="ph ph-gears"></i>
-                            <div><span class="title">Processes</span><span class="score">Overall Score: 4.5/7</span></div>
+                            <div><span class="title">Processes</span><span class="score" style="white-space: nowrap; display: block; margin-top: 4px;">Note globale : <span id="score-processus">0.0</span>/7</span></div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-info"><span>Operations & SC</span><span>4.8</span></div>
-                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-green" style="width: 68%;"></div></div>
+                        <div class="progress-item" onclick="app.openQuestionnaire('processus', 'integration_verticale')">
+                            <div class="progress-info"><span>Intégration verticale</span><span id="score-processus-integration_verticale">0.0</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-green" style="width:0%"></div></div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-info"><span>Product & Services</span><span>4.6</span></div>
-                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-green" style="width: 65%;"></div></div>
+                        <div class="progress-item" onclick="app.openQuestionnaire('processus', 'produits_services')">
+                            <div class="progress-info"><span>Products & Services</span><span id="score-processus-produits_services">0.0</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-blue" style="width:0%"></div></div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-info"><span>Quality Management</span><span>4.9</span></div>
-                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-green" style="width: 70%;"></div></div>
+                        <div class="progress-item" onclick="app.openQuestionnaire('processus', 'integration_horizontale')">
+                            <div class="progress-info"><span>Intégration horizontale</span><span id="score-processus-integration_horizontale">0.0</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-orange" style="width:0%"></div></div>
                         </div>
-                        <div class="progress-item">
-                            <div class="progress-info"><span>Customer Integration</span><span>3.1</span></div>
-                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-orange" style="width: 44%;"></div></div>
+                        <div class="progress-item" onclick="app.openQuestionnaire('processus', 'integration_client')">
+                            <div class="progress-info"><span>Customer Integration</span><span id="score-processus-integration_client">0.0</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-blue" style="width:0%"></div></div>
                         </div>
                     </div>
                 </div>
@@ -274,7 +274,48 @@
     </main>
 </div>
 
+<!-- Questionnaire Modal -->
+<div class="modal-overlay" id="evalModal">
+    
+    <!-- Topbar for full screen -->
+    <div class="fullscreen-topbar">
+        <button class="btn-return" onclick="app.closeModal()">
+            <i class="ph ph-arrow-left" style="font-size: 1.25rem;"></i> Retour au tableau de bord
+        </button>
+    </div>
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <div>
+                <h2 id="modal-category-title">Titre de la catégorie</h2>
+                <div style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;" id="modal-breadcrumb">Organisation / Leadership & Stratégie</div>
+            </div>
+        </div>
+
+        <div class="modal-body">
+            <!-- View to choose sub-sub categories (if applicable, e.g. Leadership & Strategy) -->
+            <div id="modal-subcat-view" style="display:none;">
+                <h3 style="margin-top:0; margin-bottom:16px;">Veuillez choisir une sous-catégorie :</h3>
+                <div class="subcat-grid" id="modal-subcat-grid"></div>
+            </div>
+
+            <!-- View for actual questions -->
+            <div id="modal-questions-view" style="display:none;">
+                <div id="modal-questions-container">
+                    <!-- Javascript will populate questions here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer" id="modal-footer-nav" style="display: flex; justify-content: flex-start; gap: 16px;">
+            <button class="btn-save" style="background-color: var(--text-muted);" id="btn-prev" onclick="app.prevStep()">Précédent</button>
+            <button class="btn-save" id="btn-next" onclick="app.nextStep()">Suivant</button>
+        </div>
+    </div>
+</div>
+
 <!-- Scripts -->
-<script src="assets/js/dashboard.js"></script>
+<script src="assets/js/dashboard.js?version=5"></script>
+<script src="assets/js/evaluation.js?version=5"></script>
 </body>
 </html>

@@ -19,7 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css?v=<?= time() ?>">
 
     <title>Executive Dashboard</title>
 </head>
