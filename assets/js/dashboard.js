@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         fontWeight: 700,
                         color: '#0f172a',
                         formatter: function (val) {
-                            return "4.2";
+                            return (val * 7 / 100).toFixed(1);
                         }
                     }
                 }
@@ -64,8 +64,8 @@ document.addEventListener('DOMContentLoaded', function () {
         labels: ['Maturity'],
     };
 
-    var gaugeChart = new ApexCharts(document.querySelector("#gaugeMaturityChart"), gaugeOptions);
-    gaugeChart.render();
+    window.gaugeChart = new ApexCharts(document.querySelector("#gaugeMaturityChart"), gaugeOptions);
+    window.gaugeChart.render();
     
     // Add custom absolute text below the gauge value
     setTimeout(() => {
@@ -140,8 +140,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    var radarChart = new ApexCharts(document.querySelector("#radarDimensionsChart"), radarOptions);
-    radarChart.render();
+    window.radarChart = new ApexCharts(document.querySelector("#radarDimensionsChart"), radarOptions);
+    window.radarChart.render();
 
     // 3. Maturity Progression (Line Chart)
     var progressionOptions = {
@@ -265,4 +265,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var benchmarkChart = new ApexCharts(document.querySelector("#benchmarkBarChart"), benchmarkOptions);
     benchmarkChart.render();
 
+    if (typeof app !== 'undefined') {
+        app.refreshDashboardScores();
+    }
 });

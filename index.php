@@ -315,7 +315,7 @@
 </div>
 
 <!-- Scripts -->
-<script src="assets/js/dashboard.js?version=5"></script>
-<script src="assets/js/evaluation.js?version=5"></script>
+<script src="assets/js/dashboard.js?version=6"></script>
+<script src="assets/js/evaluation.js?version=6"></script>
 </body>
 </html>

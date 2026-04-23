@@ -452,6 +452,9 @@ class EvaluationApp {
 
     refreshDashboardScores() {
         let catAverages = {};
+        let allAverages = {};
+        let globalTotal = 0;
+        let globalCount = 0;
 
         for(const catKey in dataStructure) {
             const subdivisions = dataStructure[catKey].subcategories;
@@ -461,6 +464,7 @@ class EvaluationApp {
             for(const subKey in subdivisions) {
                 const subcat = subdivisions[subKey];
                 let avg = this.calculateAverageForSubcat(subcat);
+                allAverages[`${catKey}_${subKey}`] = avg;
 
                 const scoreId = `score-${catKey}-${subKey}`;
                 const el = document.getElementById(scoreId);
@@ -486,10 +490,47 @@ class EvaluationApp {
                 }
             }
 
+            let catFinalScore = catCount > 0 ? (catTotal / catCount) : 0;
+            catAverages[catKey] = catFinalScore;
+
             const catScoreEl = document.getElementById(`score-${catKey}`);
             if (catScoreEl) {
-                catScoreEl.textContent = catCount > 0 ? (catTotal / catCount).toFixed(1) : "0.0";
+                catScoreEl.textContent = catFinalScore > 0 ? catFinalScore.toFixed(1) : "0.0";
             }
+            if (catFinalScore > 0) {
+                globalTotal += catFinalScore;
+                globalCount++;
+            }
+        }
+        
+        // Update Gauge Chart
+        if (window.gaugeChart) {
+            let globalMaturity = globalCount > 0 ? (globalTotal / globalCount) : 0;
+            let gaugeValue = (globalMaturity / 7) * 100;
+            window.gaugeChart.updateSeries([gaugeValue]);
+        }
+
+        // Update Radar Chart
+        if (window.radarChart) {
+            let radarScores = [
+                allAverages['organisation_culture'] || 0,
+                allAverages['organisation_leadership_strategie'] || 0,
+                allAverages['organisation_employes'] || 0,
+                allAverages['processus_integration_client'] || 0,
+                allAverages['processus_produits_services'] || 0,
+                allAverages['processus_integration_verticale'] || 0,
+                allAverages['technologie_donnees_cyber'] || 0,
+                allAverages['technologie_connectivite'] || 0,
+                allAverages['organisation_environnement'] || 0
+            ].map(v => parseFloat(v.toFixed(1))); // Parse to float for chart values
+            
+            window.radarChart.updateSeries([{
+                name: 'Current Score',
+                data: radarScores
+            }, {
+                name: 'Target',
+                data: [5, 5, 5, 5, 5, 5, 5, 5, 5]
+            }]);
         }
     }
 }
