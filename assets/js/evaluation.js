@@ -184,8 +184,26 @@ const dataStructure = {
 };
 
 class EvaluationApp {
+    /**
+     * Retourne la clé localStorage spécifique à l'utilisateur connecté.
+     * CURRENT_USER_ID est injecté par PHP dans index.php.
+     */
+    static getStorageKey() {
+        const uid = (typeof CURRENT_USER_ID !== 'undefined' && CURRENT_USER_ID) ? CURRENT_USER_ID : 'guest';
+        return `industrie40_scores_${uid}`;
+    }
+
+    /**
+     * Efface les scores d'un utilisateur précis du localStorage.
+     * Appelé depuis logoutAction via une page intermédiaire.
+     */
+    static clearScoresForUser() {
+        localStorage.removeItem(EvaluationApp.getStorageKey());
+    }
+
     constructor() {
-        this.scores = JSON.parse(localStorage.getItem('industrie40_scores')) || {};
+        // Charger les scores propres à cet utilisateur uniquement
+        this.scores = JSON.parse(localStorage.getItem(EvaluationApp.getStorageKey())) || {};
         this.flatSequence = [];
         
         // Initialisation de la grille pour les groupes
@@ -414,7 +432,8 @@ class EvaluationApp {
     }
 
     saveScores(showSuccess = true) {
-        localStorage.setItem('industrie40_scores', JSON.stringify(this.scores));
+        // Sauvegarder sous la clé propre à cet utilisateur
+        localStorage.setItem(EvaluationApp.getStorageKey(), JSON.stringify(this.scores));
         if (showSuccess) {
             this.refreshDashboardScores();
             this.closeModal();

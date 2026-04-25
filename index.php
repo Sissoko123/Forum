@@ -34,7 +34,7 @@
             <span class="user-name">Dr. <?php echo htmlspecialchars($_SESSION['lastname']); ?></span>
             <span class="user-role">SVP Operations</span>
         </div>
-        <a href="actions/logoutAction.php" style="color:var(--sidebar-text);"><i class="ph ph-sign-out"></i></a>
+        <a href="logout.php" style="color:var(--sidebar-text);"><i class="ph ph-sign-out"></i></a>
     </div>
 </div>
 
@@ -315,7 +315,11 @@
 </div>
 
 <!-- Scripts -->
-<script src="assets/js/dashboard.js?version=6"></script>
-<script src="assets/js/evaluation.js?version=6"></script>
+<script>
+    // Identifiant unique de l'utilisateur connecté (injecté par PHP)
+    const CURRENT_USER_ID = <?php echo json_encode($_SESSION['id']); ?>;
+</script>
+<script src="assets/js/dashboard.js?version=7"></script>
+<script src="assets/js/evaluation.js?version=7"></script>
 </body>
 </html>
