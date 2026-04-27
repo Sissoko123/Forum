@@ -157,12 +157,8 @@
                             <th>GAP</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr><td>Data Governance</td><td>2.8</td><td>5.0</td><td class="gap-red">-2.2</td></tr>
-                        <tr><td>Customer Integration</td><td>3.1</td><td>5.0</td><td class="gap-red">-1.9</td></tr>
-                        <tr><td>Employees Readiness</td><td>3.5</td><td>5.0</td><td class="gap-yellow">-1.5</td></tr>
-                        <tr><td>Tech Infrastructure</td><td>4.2</td><td>5.5</td><td class="gap-yellow">-1.3</td></tr>
-                        <tr><td>Operations & SC</td><td>4.8</td><td>5.5</td><td class="gap-gray">-0.7</td></tr>
+                    <tbody id="gap-table-body">
+                        <!-- Data will be dynamically injected here by evaluation.js -->
                     </tbody>
                 </table>
             </div>
@@ -319,7 +315,7 @@
     // Identifiant unique de l'utilisateur connecté (injecté par PHP)
     const CURRENT_USER_ID = <?php echo json_encode($_SESSION['id']); ?>;
 </script>
-<script src="assets/js/dashboard.js?version=7"></script>
-<script src="assets/js/evaluation.js?version=7"></script>
+<script src="assets/js/dashboard.js?version=8"></script>
+<script src="assets/js/evaluation.js?version=8"></script>
 </body>
 </html>

@@ -551,6 +551,39 @@ class EvaluationApp {
                 data: [5, 5, 5, 5, 5, 5, 5, 5, 5]
             }]);
         }
+
+        // Update Gap Analysis Table dynamically
+        const gapTableBody = document.getElementById('gap-table-body');
+        if (gapTableBody) {
+            const gapData = [
+                { name: 'Data Governance', current: allAverages['technologie_donnees_cyber'] || 0, target: 5.0 },
+                { name: 'Customer Integration', current: allAverages['processus_integration_client'] || 0, target: 5.0 },
+                { name: 'Employees Readiness', current: allAverages['organisation_employes'] || 0, target: 5.0 },
+                { name: 'Tech Infrastructure', current: allAverages['technologie_connectivite'] || 0, target: 5.5 },
+                { name: 'Operations & SC', current: allAverages['processus_integration_verticale'] || 0, target: 5.5 }
+            ];
+
+            gapData.forEach(d => { d.gap = d.current - d.target; });
+            gapData.sort((a, b) => a.gap - b.gap);
+
+            gapTableBody.innerHTML = '';
+            gapData.forEach(d => {
+                let gapClass = 'gap-gray';
+                if (d.gap <= -1.6) gapClass = 'gap-red';
+                else if (d.gap <= -0.8) gapClass = 'gap-yellow';
+
+                const tr = document.createElement('tr');
+                let gapText = d.gap > 0 ? '+' + d.gap.toFixed(1) : d.gap.toFixed(1);
+                
+                tr.innerHTML = `
+                    <td>${d.name}</td>
+                    <td>${d.current.toFixed(1)}</td>
+                    <td>${d.target.toFixed(1)}</td>
+                    <td class="${gapClass}">${gapText}</td>
+                `;
+                gapTableBody.appendChild(tr);
+            });
+        }
     }
 }
 
